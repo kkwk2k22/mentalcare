@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - MentalCare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="articles.html"><i class="fas fa-book-open"></i> Articles</a>
+                    <a href="test.html"><i class="fas fa-clipboard-check"></i> Stress Test</a>
+                    <a href="music.html"><i class="fas fa-music"></i> Music</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn-login" id="authButton">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="article-page">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="articles.html">Articles</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="articleCategory">Article</span>
+            </div>
+
+            <!-- Article Content -->
+            <article class="article-content">
+                <div class="article-header">
+                    <div class="article-meta">
+                        <span class="category-badge" id="articleCategoryBadge">Category</span>
+                        <span class="reading-time" id="readingTime">5 min read</span>
+                    </div>
+                    <h1 id="articleTitle">Article Title</h1>
+                    <div class="article-stats">
+                        <span><i class="far fa-eye"></i> <span id="readCount">0</span> views</span>
+                        <span><i class="far fa-calendar"></i> <span id="articleDate">Date</span></span>
+                    </div>
+                </div>
+
+                <div class="article-actions">
+                    <button class="action-btn" id="favoriteBtn">
+                        <i class="far fa-heart"></i> Add to Favorites
+                    </button>
+                    <button class="action-btn" id="shareBtn">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                    <button class="action-btn" id="printBtn">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+
+                <div class="article-image">
+                    <img id="articleImage" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" alt="Article Image">
+                </div>
+
+                <div class="article-body" id="articleBody">
+                    <!-- Article content will be loaded here -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading article...
+                    </div>
+                </div>
+
+                <div class="article-tags">
+                    <span class="tag">#mentalhealth</span>
+                    <span class="tag">#students</span>
+                    <span class="tag">#wellbeing</span>
+                </div>
+
+                <!-- Related Articles -->
+                <div class="related-articles">
+                    <h3><i class="fas fa-book-reader"></i> Related Articles</h3>
+                    <div class="related-grid" id="relatedArticles">
+                        <!-- Related articles will be loaded here -->
+                    </div>
+                </div>
+            </article>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <div class="comments-header">
+                    <h3><i class="fas fa-comments"></i> Comments</h3>
+                    <span id="commentsCount">0 comments</span>
+                </div>
+
+                <!-- Add Comment Form -->
+                <div class="add-comment" id="commentForm">
+                    <div class="comment-form">
+                        <textarea id="commentInput" placeholder="Share your thoughts..." rows="3"></textarea>
+                        <button id="submitComment" class="btn-comment">
+                            <i class="fas fa-paper-plane"></i> Post Comment
+                        </button>
+                    </div>
+                    <p class="login-prompt">Please <a href="login.html">sign in</a> to leave a comment.</p>
+                </div>
+
+                <!-- Comments List -->
+                <div class="comments-list" id="commentsList">
+                    <!-- Comments will be loaded here -->
+                    <div class="no-comments">
+                        <i class="far fa-comment"></i>
+                        <p>No comments yet. Be the first to share your thoughts!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="article-sidebar">
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-user"></i> Author</h3>
+                    <div class="author-info">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>MentalCare Team</h4>
+                            <p>Mental health experts and educators</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-bell"></i> Stay Updated</h3>
+                    <p>Get the latest articles and tips delivered to your inbox.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button class="btn-subscribe">Subscribe</button>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-chart-pie"></i> Reading Progress</h3>
+                    <div class="progress-circle">
+                        <div class="circle">
+                            <span id="progressPercent">0%</span>
+                        </div>
+                        <p>Article completion</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <div class="tools-list">
+                        <a href="test.html" class="tool">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Take Stress Test</span>
+                        </a>
+                        <a href="music.html" class="tool">
+                            <i class="fas fa-music"></i>
+                            <span>Focus Music</span>
+                        </a>
+                        <a href="index.html" class="tool">
+                            <i class="fas fa-clock"></i>
+                            <span>Pomodoro Timer</span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Supporting student mental health and academic success since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="test.html">Stress Test</a>
+                    <a href="music.html">Music</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MentalCare - Student Helper Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/article.js"></script>
+</body>
+</html>

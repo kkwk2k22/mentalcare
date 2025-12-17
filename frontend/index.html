@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentalCare - Student Helper Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                    <a href="articles.html"><i class="fas fa-book-open"></i> Articles</a>
+                    <a href="test.html"><i class="fas fa-clipboard-check"></i> Stress Test</a>
+                    <a href="music.html"><i class="fas fa-music"></i> Music</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn-login" id="authButton">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard">
+            <div class="welcome-section">
+                <h1>Welcome to <span class="highlight">MentalCare</span></h1>
+                <p class="subtitle">Your personal companion for mental well-being and academic success</p>
+                <div class="welcome-card">
+                    <div class="welcome-content">
+                        <h2><i class="fas fa-user-graduate"></i> Hello, Student!</h2>
+                        <p>Take control of your mental health and boost your study efficiency with our tools and resources.</p>
+                        <div class="welcome-stats">
+                            <div class="stat">
+                                <i class="fas fa-heart"></i>
+                                <span>Reduce Stress</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-bullseye"></i>
+                                <span>Improve Focus</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Boost Productivity</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="welcome-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" alt="Student studying">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                <div class="action-grid">
+                    <a href="articles.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Read Articles</h3>
+                        <p>Helpful tips and strategies</p>
+                    </a>
+                    <a href="test.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Stress Test</h3>
+                        <p>Check your stress level</p>
+                    </a>
+                    <a href="music.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Focus Music</h3>
+                        <p>Boost concentration</p>
+                    </a>
+                    <a href="profile.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Your Progress</h3>
+                        <p>Track your journey</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Daily Tip -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-lightbulb"></i> Daily Tip</h2>
+                        <button id="refreshTip" class="btn-refresh">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h3 id="tipTitle">Wellness Tip</h3>
+                            <p id="tipText">Take regular breaks during study sessions - try the Pomodoro technique!</p>
+                            <div class="tip-category" id="tipCategory">Study Tips</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Test Result -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-bar"></i> Recent Stress Test</h2>
+                        <a href="test.html" class="btn-take-test">Take New Test</a>
+                    </div>
+                    <div class="test-card" id="testResultCard">
+                        <div class="test-status">
+                            <div class="status-circle" id="statusCircle">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <div class="status-info">
+                                <h3 id="stressLevel">Not tested yet</h3>
+                                <p id="testDate">Take your first test to see results</p>
+                            </div>
+                        </div>
+                        <div class="test-recommendations" id="recommendations">
+                            <p>Complete the stress test to get personalized recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pomodoro Timer -->
+            <div class="dashboard-section full-width">
+                <div class="section-header">
+                    <h2><i class="fas fa-clock"></i> Focus Timer (Pomodoro)</h2>
+                </div>
+                <div class="pomodoro-timer">
+                    <div class="timer-display">
+                        <div class="timer-circle">
+                            <div class="timer-text">
+                                <span id="minutes">25</span>:<span id="seconds">00</span>
+                            </div>
+                            <div class="timer-label" id="timerLabel">Focus Time</div>
+                        </div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="startTimer" class="btn-timer">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button id="pauseTimer" class="btn-timer" disabled>
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button id="resetTimer" class="btn-timer">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                        <div class="timer-modes">
+                            <button class="mode-btn active" data-time="25">Focus (25m)</button>
+                            <button class="mode-btn" data-time="5">Short Break (5m)</button>
+                            <button class="mode-btn" data-time="15">Long Break (15m)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Articles -->
+            <div class="dashboard-section full-width">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Featured Articles</h2>
+                    <a href="articles.html" class="btn-view-all">View All</a>
+                </div>
+                <div class="articles-grid" id="featuredArticles">
+                    <!-- Articles will be loaded here -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading articles...
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Supporting student mental health and academic success since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="test.html">Stress Test</a>
+                    <a href="music.html">Music</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MentalCare - Student Helper Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

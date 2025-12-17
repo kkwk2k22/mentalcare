@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - MentalCare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="articles.html"><i class="fas fa-book-open"></i> Articles</a>
+                    <a href="test.html"><i class="fas fa-clipboard-check"></i> Stress Test</a>
+                    <a href="music.html"><i class="fas fa-music"></i> Music</a>
+                    <a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="logoutBtn" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="profile-page">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="profile-details">
+                        <h1 id="username">Username</h1>
+                        <p id="userEmail">email@example.com</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Member since <span id="joinDate">2025</span></span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span><span id="articlesRead">0</span> articles read</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span><span id="favoritesCount">0</span> favorites</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button id="editProfile" class="btn-action">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                    <button id="changeTheme" class="btn-action secondary">
+                        <i class="fas fa-palette"></i> Change Theme
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="profile-dashboard">
+                <!-- Current Status -->
+                <div class="status-card">
+                    <h3><i class="fas fa-chart-line"></i> Current Status</h3>
+                    <div class="status-content">
+                        <div class="status-item">
+                            <div class="status-icon stress">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="status-details">
+                                <h4>Stress Level</h4>
+                                <p id="currentStress">Not tested</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon focus">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="status-details">
+                                <h4>Focus Score</h4>
+                                <p id="focusScore">85%</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon wellbeing">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <div class="status-details">
+                                <h4>Well-being</h4>
+                                <p id="wellbeingScore">Good</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-card">
+                    <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <i class="fas fa-book-reader"></i>
+                            <div>
+                                <p>Read "5 Effective Stress Management Techniques"</p>
+                                <small>2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-clipboard-check"></i>
+                            <div>
+                                <p>Completed stress test (Medium stress)</p>
+                                <small>1 day ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <p>Listened to Focus Flow for 45 minutes</p>
+                                <small>2 days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test History -->
+            <div class="history-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-chart-bar"></i> Stress Test History</h3>
+                    <a href="test.html" class="btn-take-test">Take New Test</a>
+                </div>
+                <div class="history-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Score</th>
+                                <th>Level</th>
+                                <th>Trend</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="testHistoryBody">
+                            <tr>
+                                <td colspan="5" class="no-data">No test history available</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="history-chart">
+                    <h4><i class="fas fa-chart-line"></i> Stress Level Trend</h4>
+                    <div class="chart-container">
+                        <canvas id="stressChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites & Achievements -->
+            <div class="profile-sections">
+                <!-- Favorites -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h3><i class="fas fa-heart"></i> Favorite Articles</h3>
+                        <a href="articles.html" class="btn-view-all">View All</a>
+                    </div>
+                    <div class="favorites-grid" id="favoritesGrid">
+                        <div class="no-favorites">
+                            <i class="far fa-heart"></i>
+                            <p>No favorite articles yet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                    </div>
+                    <div class="achievements-grid" id="achievementsGrid">
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <div class="achievement-details">
+                                <h4>First Article</h4>
+                                <p>Read your first article</p>
+                            </div>
+                            <div class="achievement-status">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="achievement-details">
+                                <h4>Stress Aware</h4>
+                                <p>Complete first stress test</p>
+                            </div>
+                            <div class="achievement-status">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <div class="achievement-details">
+                                <h4>Music Lover</h4>
+                                <p>Listen to 5 tracks</p>
+                            </div>
+                            <div class="achievement-status">
+                                <i class="far fa-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="settings-section">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <div class="settings-grid">
+                    <div class="setting">
+                        <h4><i class="fas fa-bell"></i> Notifications</h4>
+                        <p>Receive daily tips and reminders</p>
+                        <label class="switch">
+                            <input type="checkbox" id="notificationsToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting">
+                        <h4><i class="fas fa-palette"></i> Theme</h4>
+                        <p>Choose your preferred theme</p>
+                        <select id="themeSelect">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+                    <div class="setting">
+                        <h4><i class="fas fa-clock"></i> Study Reminders</h4>
+                        <p>Get reminded to take breaks</p>
+                        <label class="switch">
+                            <input type="checkbox" id="remindersToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting">
+                        <h4><i class="fas fa-shield-alt"></i> Privacy</h4>
+                        <p>Control your data privacy</p>
+                        <button class="btn-privacy">Manage</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Export -->
+            <div class="data-section">
+                <h3><i class="fas fa-download"></i> Your Data</h3>
+                <p>Export your MentalCare data for personal records</p>
+                <div class="data-actions">
+                    <button id="exportData" class="btn-data">
+                        <i class="fas fa-file-export"></i> Export All Data
+                    </button>
+                    <button id="deleteAccount" class="btn-data delete">
+                        <i class="fas fa-trash-alt"></i> Delete Account
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Supporting student mental health and academic success since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="test.html">Stress Test</a>
+                    <a href="music.html">Music</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MentalCare - Student Helper Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

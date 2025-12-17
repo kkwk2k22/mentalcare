@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Music - MentalCare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="articles.html"><i class="fas fa-book-open"></i> Articles</a>
+                    <a href="test.html"><i class="fas fa-clipboard-check"></i> Stress Test</a>
+                    <a href="music.html" class="active"><i class="fas fa-music"></i> Music</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn-login" id="authButton">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="music-page">
+            <!-- Header -->
+            <div class="page-header">
+                <h1><i class="fas fa-music"></i> Music for Concentration</h1>
+                <p>Curated playlists to help you focus, relax, and sleep better</p>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="music-player">
+                <div class="player-controls">
+                    <div class="now-playing">
+                        <div class="track-info">
+                            <h3 id="currentTrack">Focus Flow</h3>
+                            <p id="currentArtist">Lofi Study</p>
+                        </div>
+                        <div class="player-buttons">
+                            <button id="prevTrack" class="player-btn">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button id="playPause" class="player-btn play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button id="nextTrack" class="player-btn">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-down"></i>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Categories -->
+            <div class="music-categories">
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="focus">
+                        <i class="fas fa-bullseye"></i> Focus
+                    </button>
+                    <button class="category-tab" data-category="relax">
+                        <i class="fas fa-spa"></i> Relax
+                    </button>
+                    <button class="category-tab" data-category="sleep">
+                        <i class="fas fa-moon"></i> Sleep
+                    </button>
+                </div>
+
+                <!-- Focus Category -->
+                <div class="category-content active" id="focusContent">
+                    <div class="category-header">
+                        <h2><i class="fas fa-bullseye"></i> Focus Music</h2>
+                        <p>Instrumental tracks to enhance concentration and productivity</p>
+                    </div>
+                    <div class="tracks-grid" id="focusTracks">
+                        <!-- Focus tracks will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Relax Category -->
+                <div class="category-content" id="relaxContent">
+                    <div class="category-header">
+                        <h2><i class="fas fa-spa"></i> Relaxation Music</h2>
+                        <p>Calming sounds to reduce stress and anxiety</p>
+                    </div>
+                    <div class="tracks-grid" id="relaxTracks">
+                        <!-- Relax tracks will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Sleep Category -->
+                <div class="category-content" id="sleepContent">
+                    <div class="category-header">
+                        <h2><i class="fas fa-moon"></i> Sleep Music</h2>
+                        <p>Soothing melodies to help you fall asleep and stay asleep</p>
+                    </div>
+                    <div class="tracks-grid" id="sleepTracks">
+                        <!-- Sleep tracks will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded Player -->
+            <div class="embedded-player">
+                <h3><i class="fas fa-headphones"></i> Now Playing</h3>
+                <div class="player-container">
+                    <div class="player-embed" id="playerEmbed">
+                        <div class="player-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Select a track to start playing</p>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <div class="playlist-section">
+                            <h4><i class="fas fa-list"></i> Current Playlist</h4>
+                            <div class="playlist-tracks" id="playlistTracks">
+                                <!-- Playlist tracks will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="timer-section">
+                            <h4><i class="fas fa-clock"></i> Study Timer</h4>
+                            <div class="study-timer">
+                                <div class="timer-display">
+                                    <span id="studyMinutes">25</span>:<span id="studySeconds">00</span>
+                                </div>
+                                <div class="timer-controls">
+                                    <button id="startStudy" class="timer-btn">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button id="pauseStudy" class="timer-btn" disabled>
+                                        <i class="fas fa-pause"></i>
+                                    </button>
+                                    <button id="resetStudy" class="timer-btn">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="timer-presets">
+                                <button class="preset-btn" data-time="25">25 min</button>
+                                <button class="preset-btn" data-time="50">50 min</button>
+                                <button class="preset-btn" data-time="90">90 min</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <h2><i class="fas fa-check-circle"></i> Benefits of Focus Music</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Improved Concentration</h3>
+                        <p>Reduces distractions and helps maintain focus on tasks</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Reduced Stress</h3>
+                        <p>Lowers cortisol levels and promotes relaxation</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Increased Productivity</h3>
+                        <p>Helps complete tasks faster and more efficiently</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Enhanced Creativity</h3>
+                        <p>Stimulates creative thinking and problem-solving</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Playlist -->
+            <div class="custom-playlist">
+                <h2><i class="fas fa-plus-circle"></i> Create Custom Playlist</h2>
+                <div class="playlist-creator">
+                    <div class="playlist-input">
+                        <input type="text" id="playlistName" placeholder="Enter playlist name">
+                        <button id="createPlaylist" class="btn-create">
+                            <i class="fas fa-plus"></i> Create
+                        </button>
+                    </div>
+                    <div class="playlist-saved">
+                        <h4><i class="fas fa-save"></i> Saved Playlists</h4>
+                        <div class="saved-list" id="savedPlaylists">
+                            <div class="no-playlists">
+                                <p>No playlists created yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Supporting student mental health and academic success since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="test.html">Stress Test</a>
+                    <a href="music.html">Music</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MentalCare - Student Helper Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/music.js"></script>
+</body>
+</html>

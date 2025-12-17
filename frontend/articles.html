@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - MentalCare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="articles.html" class="active"><i class="fas fa-book-open"></i> Articles</a>
+                    <a href="test.html"><i class="fas fa-clipboard-check"></i> Stress Test</a>
+                    <a href="music.html"><i class="fas fa-music"></i> Music</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn-login" id="authButton">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="articles-page">
+            <!-- Header -->
+            <div class="page-header">
+                <h1><i class="fas fa-book-open"></i> Helpful Articles</h1>
+                <p>Discover strategies and tips for mental well-being and academic success</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="articles-filters">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Categories</button>
+                    <button class="filter-btn" data-category="1">Stress Management</button>
+                    <button class="filter-btn" data-category="2">Procrastination</button>
+                    <button class="filter-btn" data-category="3">Study Tips</button>
+                    <button class="filter-btn" data-category="4">Motivation</button>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search articles...">
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-container">
+                <div class="articles-sidebar">
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-filter"></i> Filter By</h3>
+                        <div class="category-list" id="categoryList">
+                            <!-- Categories will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-fire"></i> Popular Articles</h3>
+                        <div class="popular-articles" id="popularArticles">
+                            <!-- Popular articles will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-bookmark"></i> Your Favorites</h3>
+                        <div class="favorites-section" id="favoritesSection">
+                            <p>Sign in to see your favorite articles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="articles-grid" id="articlesGrid">
+                    <!-- Articles will be loaded here -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading articles...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading Progress -->
+            <div class="reading-progress">
+                <div class="progress-header">
+                    <h3><i class="fas fa-chart-line"></i> Your Reading Progress</h3>
+                    <span id="articlesRead">0 articles read</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Supporting student mental health and academic success since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="test.html">Stress Test</a>
+                    <a href="music.html">Music</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MentalCare - Student Helper Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/articles.js"></script>
+</body>
+</html>

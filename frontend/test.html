@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Test - MentalCare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="articles.html"><i class="fas fa-book-open"></i> Articles</a>
+                    <a href="test.html" class="active"><i class="fas fa-clipboard-check"></i> Stress Test</a>
+                    <a href="music.html"><i class="fas fa-music"></i> Music</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn-login" id="authButton">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="test-page">
+            <!-- Header -->
+            <div class="test-header">
+                <h1><i class="fas fa-clipboard-check"></i> Stress Level Assessment</h1>
+                <p>Take this 7-question test to assess your current stress level and get personalized recommendations.</p>
+                <div class="test-info">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Time Required</h4>
+                            <p>3-5 minutes</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Confidential</h4>
+                            <p>Your results are private</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h4>Track Progress</h4>
+                            <p>Monitor changes over time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Progress -->
+            <div class="test-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="testProgress" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">
+                    <span>Question <span id="currentQuestion">1</span> of 7</span>
+                </div>
+            </div>
+
+            <!-- Test Container -->
+            <div class="test-container">
+                <div class="test-welcome" id="welcomeScreen">
+                    <div class="welcome-content">
+                        <div class="welcome-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h2>Ready to Begin?</h2>
+                        <p>This assessment will help you understand your current stress levels and provide personalized suggestions for improvement.</p>
+                        <div class="instructions">
+                            <h3><i class="fas fa-list-alt"></i> Instructions:</h3>
+                            <ul>
+                                <li>Answer each question honestly</li>
+                                <li>Choose the option that best describes your recent experience</li>
+                                <li>There are no right or wrong answers</li>
+                                <li>Your results are confidential</li>
+                            </ul>
+                        </div>
+                        <button id="startTest" class="btn-start">
+                            <i class="fas fa-play"></i> Start Assessment
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <div class="questions-container" id="questionsContainer" style="display: none;">
+                    <form id="stressTestForm">
+                        <!-- Questions will be dynamically inserted here -->
+                    </form>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <div class="results-header">
+                        <h2><i class="fas fa-chart-bar"></i> Your Stress Assessment Results</h2>
+                        <p id="testDate">Completed on April 8, 2025</p>
+                    </div>
+
+                    <div class="results-content">
+                        <div class="result-score">
+                            <div class="score-circle">
+                                <div class="circle">
+                                    <span id="finalScore">0</span>
+                                    <small>Score</small>
+                                </div>
+                            </div>
+                            <div class="result-level">
+                                <h3 id="stressLevel">Stress Level</h3>
+                                <p id="levelDescription">Description will appear here</p>
+                            </div>
+                        </div>
+
+                        <div class="result-details">
+                            <div class="detail-card">
+                                <i class="fas fa-heart"></i>
+                                <h4>Your Level</h4>
+                                <p id="levelDetail">Low/Medium/High Stress</p>
+                            </div>
+                            <div class="detail-card">
+                                <i class="fas fa-percentage"></i>
+                                <h4>Percentage</h4>
+                                <p id="stressPercentage">0%</p>
+                            </div>
+                            <div class="detail-card">
+                                <i class="fas fa-users"></i>
+                                <h4>Compared to Peers</h4>
+                                <p id="comparison">About average</p>
+                            </div>
+                        </div>
+
+                        <div class="recommendations">
+                            <h3><i class="fas fa-lightbulb"></i> Personalized Recommendations</h3>
+                            <div class="recommendations-list" id="recommendationsList">
+                                <!-- Recommendations will be loaded here -->
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="saveResults" class="btn-action">
+                                <i class="fas fa-save"></i> Save Results
+                            </button>
+                            <button id="retakeTest" class="btn-action secondary">
+                                <i class="fas fa-redo"></i> Retake Test
+                            </button>
+                            <button id="viewHistory" class="btn-action secondary">
+                                <i class="fas fa-history"></i> View History
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test History -->
+            <div class="test-history">
+                <h3><i class="fas fa-history"></i> Your Test History</h3>
+                <div class="history-container" id="historyContainer">
+                    <div class="no-history">
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>No test history yet. Complete your first assessment to track your progress.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stress Tips -->
+            <div class="stress-tips">
+                <h3><i class="fas fa-hands-helping"></i> Quick Stress Relief Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-wind"></i>
+                        <h4>Deep Breathing</h4>
+                        <p>Take 5 deep breaths to calm your nervous system.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-walking"></i>
+                        <h4>Short Walk</h4>
+                        <p>A 10-minute walk can reduce stress hormones.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-water"></i>
+                        <h4>Stay Hydrated</h4>
+                        <p>Dehydration can increase stress levels.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Digital Break</h4>
+                        <p>Take 30 minutes away from screens.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Supporting student mental health and academic success since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="test.html">Stress Test</a>
+                    <a href="music.html">Music</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MentalCare - Student Helper Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/test.js"></script>
+</body>
+</html>
