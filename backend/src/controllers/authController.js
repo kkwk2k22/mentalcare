@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 
 const generateToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
+  return jwt.sign({ userId }, process.env.JWT_SECRET || 'mentalcare_secret_key_2025', {
+    expiresIn: process.env.JWT_EXPIRES_IN || '7d',
   });
 };
 
@@ -40,7 +40,7 @@ const register = async (req, res) => {
       }
     });
   } catch (error) {
-    console.error(error);
+    console.error('Registration error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 };
@@ -76,7 +76,7 @@ const login = async (req, res) => {
       }
     });
   } catch (error) {
-    console.error(error);
+    console.error('Login error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 };
@@ -86,7 +86,7 @@ const getProfile = async (req, res) => {
     const user = await User.findById(req.user.id);
     res.json({ success: true, user });
   } catch (error) {
-    console.error(error);
+    console.error('Get profile error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 };
@@ -97,7 +97,7 @@ const updateTheme = async (req, res) => {
     const user = await User.updateTheme(req.user.id, theme);
     res.json({ success: true, user });
   } catch (error) {
-    console.error(error);
+    console.error('Update theme error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 };

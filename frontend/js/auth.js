@@ -1,5 +1,5 @@
 // Base API URL
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5007/api';
 
 // DOM Elements
 const authButton = document.getElementById('authButton');
